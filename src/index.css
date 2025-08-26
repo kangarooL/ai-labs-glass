@@ -187,4 +187,14 @@ All colors MUST be HSL.
   .star.filled {
     color: hsl(45 100% 60%);
   }
+
+  /* Glass input */
+  .glass-input {
+    @apply bg-white/5 border-white/10 backdrop-blur-xl text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-primary/20;
+  }
+
+  /* Glass button */
+  .glass-button {
+    @apply bg-white/5 border-white/10 backdrop-blur-xl hover:bg-white/10 transition-all duration-300;
+  }
 }

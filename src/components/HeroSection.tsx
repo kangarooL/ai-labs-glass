@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Rocket } from "lucide-react";
+import { useState } from "react";
+import AuthModal from "./AuthModal";
 
 const HeroSection = () => {
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -46,7 +50,7 @@ const HeroSection = () => {
               size="lg" 
               variant="outline" 
               className="px-8 py-4 text-lg bg-white/5 border-white/20 hover:bg-white/10 backdrop-blur-sm"
-              onClick={() => scrollToSection('register')}
+              onClick={() => setIsAuthModalOpen(true)}
             >
               <Rocket className="mr-2" size={20} />
               Let's Get Started
@@ -59,6 +63,11 @@ const HeroSection = () => {
           <div className="absolute bottom-20 left-20 w-3 h-3 bg-primary-glow rounded-full animate-ping"></div>
         </div>
       </div>
+      
+      <AuthModal 
+        isOpen={isAuthModalOpen} 
+        onClose={() => setIsAuthModalOpen(false)} 
+      />
     </section>
   );
 };
